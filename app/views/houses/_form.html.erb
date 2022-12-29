@@ -1,0 +1,24 @@
+<%= form_with model: @house do |form| %>
+  <div>
+    <%= form.label :name, "House Name" %>
+    <%= form.text_field :name %>
+    <% @house.errors.full_messages_for(:name).each do |message| %>
+      <span role="error"><%= message %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :exterior_color, "Exterior Color" %>
+    <%= form.text_field :exterior_color %>
+    <% @house.errors.full_messages_for(:exterior_color).each do |message| %>
+      <span role="error"><%= message %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :trim_color, "Trim Color" %>
+    <%= form.text_field :trim_color %>
+    <% @house.errors.full_messages_for(:trim_color).each do |message| %>
+      <span role="error"><%= message %></span>
+    <% end %>
+  </div>
+  <%= form.submit %>
+<% end %>
