@@ -6,3 +6,6 @@
   <li>User Created On: <%= @person.created_at.to_fs(:long) %></li>
   <li>Last Updated: <%= @person.updated_at.to_fs(:long) %></li>
 </ul>
+<div>
+  <%= link_to "Update this user?", edit_person_path(@person) %>
+</div>
