@@ -2,7 +2,7 @@
 <% @people.each do |person| %>
   <article>
     <p><%= person.first_name %> <%= person.last_name %></p>
-    <p><%= person.username %></p>
+    <%= link_to person.username, person_path(person) %>
   </article>
 <% end %>
 
