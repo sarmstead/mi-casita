@@ -1,5 +1,5 @@
-name: Rails Tests
-on:[push]
+name: Rails
+on: [push]
 
 permissions:
   contents: read
