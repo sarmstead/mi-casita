@@ -40,6 +40,13 @@ class PeopleController < ApplicationController
     end
   end
 
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+
+    redirect_to people_path, status: :see_other
+  end
+
   private
 
   def validate_username(username)
