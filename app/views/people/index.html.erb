@@ -1,0 +1,11 @@
+<h1>All the peeps</h1>
+<% @people.each do |person| %>
+  <article>
+    <p><%= person.first_name %> <%= person.last_name %></p>
+    <%= link_to person.username, person_path(person) %>
+  </article>
+<% end %>
+
+<div>
+  <%= link_to "Add a New Owner!", new_person_path %>
+</div>

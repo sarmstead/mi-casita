@@ -1,0 +1,13 @@
+<h1>All about <%= @person.first_name %></h1>
+<ul>
+  <li>First Name: <%= @person.first_name %></li>
+  <li>Last Name: <%= @person.last_name %></li>
+  <li>Username: <%= @person.username %></li>
+  <li>User Created On: <%= @person.created_at.to_fs(:long) %></li>
+  <li>Last Updated: <%= @person.updated_at.to_fs(:long) %></li>
+</ul>
+<div>
+  <%= link_to "Update this user", edit_person_path(@person) %>
+  <span> | </span>
+  <%= link_to "Delete #{@person.first_name}'s account", person_path(@person), data: { turbo_method: :delete, turbo_confirm: "You sure you want to delete #{@person.first_name}'s records?! "} %>
+</div>
