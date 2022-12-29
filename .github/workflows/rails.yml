@@ -1,9 +1,6 @@
 name: Rails
 on: [push]
 
-permissions:
-  contents: read
-
 jobs:
   tests:
     name: Tests
