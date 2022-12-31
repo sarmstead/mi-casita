@@ -15,7 +15,7 @@ class HousesController < ApplicationController
     @house = House.new(house_params)
 
     if @house.save
-      redirect_to @house
+      redirect_to new_home_ownership_path(house_id: @house.id)
     else
       render :new, status: :unprocessable_entity
     end
