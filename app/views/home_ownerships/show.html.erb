@@ -6,5 +6,5 @@
 </ul>
 
 <div>
-   <%= link_to "Update Ownership?", edit_home_ownership_path(person_id: @ownership.person.id, house_id: @ownership.house.id) %>
+   <%= link_to "Update Ownership?", edit_home_ownership_path(person_id: @ownership.person.id, house_id: @ownership.house.id) %> | <%= link_to "Delete this Home Ownership?", home_ownership_path(@ownership), data: { turbo_method: :delete, turbo_confirm: "You sure you want to delete Ownership ##{@ownership.id}'s records?! "} %>
 </div>

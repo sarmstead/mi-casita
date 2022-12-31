@@ -35,6 +35,13 @@ class HomeOwnershipsController < ApplicationController
     end
   end
 
+  def destroy
+    @ownership = HomeOwnership.find(params[:id])
+    @ownership.destroy
+
+    redirect_to home_ownerships_path, status: :see_other
+  end
+
   private
 
   def ownership_params
