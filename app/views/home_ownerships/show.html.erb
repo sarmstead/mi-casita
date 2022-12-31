@@ -1,0 +1,6 @@
+<h1>Ownership Number: <%= @ownership.id %></h1>
+
+<ul>
+  <li>Home Owner: <%= link_to "#{@ownership.person.first_name}", person_path(@ownership.person) %></li>
+  <li>Home Name: <%= link_to "#{@ownership.house.name}", house_path(@ownership.house) %></li>
+</ul>
