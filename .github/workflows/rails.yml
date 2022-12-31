@@ -23,7 +23,7 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          bin/rails db:create
+          bin/rails db:reset
 
       - name: Run tests
         run: bin/rails test
