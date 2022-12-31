@@ -4,3 +4,7 @@
   <li>Home Owner: <%= link_to "#{@ownership.person.first_name}", person_path(@ownership.person) %></li>
   <li>Home Name: <%= link_to "#{@ownership.house.name}", house_path(@ownership.house) %></li>
 </ul>
+
+<div>
+   <%= link_to "Update Ownership?", edit_home_ownership_path(person_id: @ownership.person.id, house_id: @ownership.house.id) %>
+</div>
