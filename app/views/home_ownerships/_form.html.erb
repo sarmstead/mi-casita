@@ -1,15 +1,15 @@
-<%= form_with model: @ownership do |form| %>
+<%= form_with model: @home_ownership do |form| %>
   <div>
     <%= form.label :person_id, "Assign Homeowner" %>
     <%= form.select :person_id, Person.all.collect { |person| [person.first_name, person.id] }, { include_blank: true, selected: params[:person_id] } %>
-    <% @ownership.errors.full_messages_for(:person_id).each do |message| %>
+    <% @home_ownership.errors.full_messages_for(:person_id).each do |message| %>
       <span role="error"><%= message %></span>
     <% end %>
   </div>
   <div>
     <%= form.label :house_id, "Assign House" %>
     <%= form.select :house_id, House.all.collect { |house| [house.name, house.id] }, { include_blank: true, selected: params[:house_id] } %>
-    <% @ownership.errors.full_messages_for(:house_id).each do |message| %>
+    <% @home_ownership.errors.full_messages_for(:house_id).each do |message| %>
       <span role="error"><%= message %></span>
     <% end %>
   </div>

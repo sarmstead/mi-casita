@@ -1,50 +1,50 @@
 class HomeOwnershipsController < ApplicationController
   def index
-    @ownerships = HomeOwnership.all
+    @home_ownerships = HomeOwnership.all
   end
 
   def show
-    @ownership = HomeOwnership.find(params[:id])
+    @home_ownership = HomeOwnership.find(params[:id])
   end
 
   def new
-    @ownership = HomeOwnership.new
+    @home_ownership = HomeOwnership.new
   end
 
   def create
-    @ownership = HomeOwnership.new(ownership_params)
+    @home_ownership = HomeOwnership.new(home_ownership_params)
 
-    if @ownership.save
-      redirect_to @ownership
+    if @home_ownership.save
+      redirect_to @home_ownership
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @ownership = HomeOwnership.find(params[:id])
+    @home_ownership = HomeOwnership.find(params[:id])
   end
 
   def update
-    @ownership = HomeOwnership.find(params[:id])
+    @home_ownership = HomeOwnership.find(params[:id])
 
-    if @ownership.update(ownership_params)
-      redirect_to @ownership
+    if @home_ownership.update(home_ownership_params)
+      redirect_to @home_ownership
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @ownership = HomeOwnership.find(params[:id])
-    @ownership.destroy
+    @home_ownership = HomeOwnership.find(params[:id])
+    @home_ownership.destroy
 
     redirect_to home_ownerships_path, status: :see_other
   end
 
   private
 
-  def ownership_params
+  def home_ownership_params
     params.require(:home_ownership).permit(:person_id, :house_id)
   end
 end
