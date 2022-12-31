@@ -3,3 +3,9 @@ laura:
   first_name: Laura
   last_name: Frost
   username: "@lfrosty"
+
+randall:
+  id: 2
+  first_name: Randall
+  last_name: Alemont
+  username: "@ralemont"
