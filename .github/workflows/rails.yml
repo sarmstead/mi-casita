@@ -8,10 +8,6 @@ jobs:
     services:
       postgres:
         image: postgres:12.7
-        env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
         ports: ["5432:5432"]
 
     steps:
