@@ -21,6 +21,20 @@ class HomeOwnershipsController < ApplicationController
     end
   end
 
+  def edit
+    @ownership = HomeOwnership.find(params[:id])
+  end
+
+  def update
+    @ownership = HomeOwnership.find(params[:id])
+
+    if @ownership.update(ownership_params)
+      redirect_to @ownership
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def ownership_params
