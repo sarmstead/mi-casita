@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    @person.username = validate_username(@person.username)
+    @person.username = "@#{@person.username}" unless @person.username.starts_with? '@'
 
     if @person.save
       redirect_to @person
@@ -44,10 +44,6 @@ class PeopleController < ApplicationController
   end
 
   private
-
-  def validate_username(username)
-    "@#{username}" unless username.starts_with? '@'
-  end
 
   def person_params
     params.require(:person).permit(:first_name, :last_name, :username)
