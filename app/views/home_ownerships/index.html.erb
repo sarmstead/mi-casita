@@ -1,0 +1,13 @@
+<h1>All Ownerships</h1>
+<% @home_ownerships.each do |ownership| %>
+  <article>
+    <p>ID: <%= ownership.id %></p>
+    <p>Home Owner: <%= ownership.person.first_name %></p>
+    <p>Home Name: <%= ownership.house.name %></p>
+    <%= link_to "View Ownership", home_ownership_path(ownership) %>
+  </article>
+<% end %>
+
+<div>
+  <%= link_to "Create a New Home Ownership!", new_home_ownership_path %>
+</div>

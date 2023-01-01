@@ -22,6 +22,6 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test 'should delete record with valid user' do
-    assert Person.destroy(people(:tina).id)
+    assert Person.destroy(people(:laura).id)
   end
 end

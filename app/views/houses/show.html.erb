@@ -1,0 +1,14 @@
+<h1><%= @house.name %></h1>
+
+<ul>
+  <li>Exterior Color: <%= @house.exterior_color %></li>
+  <li>Trim Color: <%= @house.trim_color %></li>
+  <li>House Created On: <%= @house.created_at.to_fs(:long) %></li>
+  <li>Last Updated: <%= @house.updated_at.to_fs(:long) %></li>
+</ul>
+
+<div>
+  <%= link_to "Update this house", edit_house_path(@house) %>
+  <span> | </span>
+  <%= link_to "Demolish this House", house_path(@house), data: { turbo_method: :delete, turbo_confirm: "You sure you want to delete #{@house.name}'s records?! "} %>
+</div>

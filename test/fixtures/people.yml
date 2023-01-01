@@ -1,9 +1,11 @@
 laura:
+  id: 1
   first_name: Laura
   last_name: Frost
   username: "@lfrosty"
 
-tina:
-  first_name: Tina
-  last_name: Faye
-  username: "@tfaye"
+randall:
+  id: 2
+  first_name: Randall
+  last_name: Alemont
+  username: "@ralemont"

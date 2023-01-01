@@ -1,0 +1,13 @@
+<h1>All Houses</h1>
+<% @houses.each do |house| %>
+  <article>
+    <p>Name: <%= house.name %></p>
+    <p>Exterior Color: <%= house.exterior_color %></p>
+    <p>Trim Color: <%= house.trim_color %></p>
+    <%= link_to "View Home", house_path(house) %>
+  </article>
+<% end %>
+
+<div>
+  <%= link_to "Build a New House!", new_house_path %>
+</div>
