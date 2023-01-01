@@ -9,7 +9,7 @@ jobs:
       postgres:
         image: postgres:12.7
         env:
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: "casita"
           POSTGRES_USER: casita
           POSTGRES_DB: mi_casita_test
         ports: ["5432:5432"]
@@ -27,7 +27,7 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: "casita"
           POSTGRES_USER: casita
           POSTGRES_DB: mi_casita_test
         run: bin/rails db:setup
