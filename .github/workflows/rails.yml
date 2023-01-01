@@ -9,9 +9,9 @@ jobs:
       postgres:
         image: postgres:12.7
         env:
-          POSTGRES_USER: casita
-          POSTGRES_DB: casita
-          POSTGRES_PASSWORD: casita
+          MI_CASITA_DATABASE_USER: casita
+          MI_CASITA_DATABASE_NAME: casita
+          MI_CASITA_DATABASE_PASSWORD: casita
         ports: ["5432:5432"]
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
@@ -27,10 +27,9 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
-        run: |
-          bin/rails db:setup
+          MI_CASITA_DATABASE_HOST: localhost
+          MI_CASITA_DATABASE_USER: casita
+        run: bin/rails db:setup
 
       - name: Run tests
         run: bin/rails test
