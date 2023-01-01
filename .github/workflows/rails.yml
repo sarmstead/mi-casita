@@ -27,8 +27,9 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          MI_CASITA_DATABASE_HOST: localhost
-          MI_CASITA_DATABASE_USER: casita
+          POSTGRES_PASSWORD: ""
+          POSTGRES_USER: casita
+          POSTGRES_DB: mi_casita_test
         run: bin/rails db:setup
 
       - name: Run tests
