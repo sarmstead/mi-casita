@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: mi_casita_development
+  url: <%= ENV['DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,12 +57,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: postgres
-  adapter: postgresql
-  host: localhost
-  encoding: unicode
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
+  # database: <%= ENV["RAILS_ENV"] == "development" ? "mi_casita_test" : "postgres" %>
+  # host: localhost
+  # username: <%= ENV["POSTGRES_USER"] %>
+  # password: <%= ENV["POSTGRES_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,6 +86,4 @@ test:
 #
 production:
   <<: *default
-  database: mi_casita_production
-  username: mi_casita
-  password: <%= ENV["MI_CASITA_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

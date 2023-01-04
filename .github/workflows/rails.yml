@@ -1,6 +1,5 @@
 name: Rails
 on: [push]
-
 jobs:
   tests:
     name: Tests
@@ -9,25 +8,22 @@ jobs:
       postgres:
         image: postgres:12.7
         env:
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: db_password
+          POSTGRES_USER: db_user
+          POSTGRES_DB: mi_casita_test_ci
         ports: ["5432:5432"]
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
       - name: Run tests
         env:
           RAILS_ENV: test
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
+          DATABASE_URL: 'postgres://db_user:db_password@localhost:5432/mi_casita_test_ci'
         run: |
           bin/rails db:setup
           bin/rails test
