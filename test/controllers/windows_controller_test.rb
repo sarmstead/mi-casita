@@ -20,10 +20,7 @@ class WindowsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    # Window.count in the test db is determined by test/fixtures/windows.yml
-    new_window = Window.find('2')
-
-    assert_redirected_to house_path(new_window.house)
+    assert_redirected_to house_path(houses(:bomba))
   end
 
   test 'should edit a window' do
