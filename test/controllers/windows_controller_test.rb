@@ -5,4 +5,9 @@ class WindowsControllerTest < ActionDispatch::IntegrationTest
     get windows_url
     assert_response :success
   end
+
+  test 'should fetch individual window' do
+    get window_url(windows(:front))
+    assert_response :success
+  end
 end
