@@ -1,0 +1,10 @@
+<%= form_with model: @window do |form| %>
+  <div>
+    <%= form.label :house_id, "Which house does this window belong in?" %>
+    <%= form.select :house_id, House.all.collect { |house| [house.name, house.id] }, { include_blank: true, selected: params[:house_id]} %>
+    <% @window.errors.full_messages_for(:house_id).each do |message| %>
+      <span role="error"><%= message %></span>
+    <% end %>
+  </div>
+  <%= form.submit %>
+<% end %>
