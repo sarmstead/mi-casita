@@ -39,6 +39,6 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       delete person_url(people(:laura))
     end
 
-    assert_redirected_to people_url
+    assert_redirected_to people_path
   end
 end
