@@ -38,6 +38,6 @@ class HomeOwnershipsControllerTest < ActionDispatch::IntegrationTest
       delete home_ownership_url(home_ownerships(:laura_bomba))
     end
 
-    assert_redirected_to home_ownerships_url
+    assert_redirected_to home_ownerships_path
   end
 end
