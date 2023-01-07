@@ -5,3 +5,8 @@
   <li>Window Last Fixed On: <%= @window.updated_at =%></li>
   <li>Window Belongs To: <%= link_to @window.house.name, house_path(@window.house) =%></li>
 </ul>
+<div>
+  <%= link_to "Update this Window", edit_window_path(@window) %>
+  <span> | </span>
+  <%= link_to "Bust this Window", window_path(@window), data: { turbo_method: :delete, turbo_confirm: "You sure you want to destroy Window ##{@window.id}'s records?! "} %>
+</div>

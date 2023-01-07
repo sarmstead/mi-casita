@@ -35,4 +35,10 @@ class WindowsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to house_path(houses(:shire))
   end
+
+  test 'should delete a window' do
+    delete window_url(windows(:front))
+
+    assert_redirected_to windows_path
+  end
 end

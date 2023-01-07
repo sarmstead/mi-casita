@@ -35,6 +35,13 @@ class WindowsController < ApplicationController
     end
   end
 
+  def destroy
+    @window = Window.find(params[:id])
+    @window.destroy
+
+    redirect_to windows_path
+  end
+
   private
 
   def window_params
