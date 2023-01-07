@@ -21,6 +21,20 @@ class WindowsController < ApplicationController
     end
   end
 
+  def edit
+    @window = Window.find(params[:id])
+  end
+
+  def update
+    @window = Window.find(params[:id])
+
+    if @window.update(window_params)
+      redirect_to @window.house
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def window_params

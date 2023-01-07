@@ -25,4 +25,14 @@ class WindowsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to house_path(new_window.house)
   end
+
+  test 'should edit a window' do
+    patch window_url(windows(:front)), params: {
+      window: {
+        house_id: houses(:shire).id
+      }
+    }
+
+    assert_redirected_to house_path(houses(:shire))
+  end
 end
