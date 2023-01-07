@@ -30,7 +30,7 @@ class HomeOwnershipsControllerTest < ActionDispatch::IntegrationTest
         person_id: people(:randall).id
       }
     }
-    assert_redirected_to home_ownership_url(home_ownerships(:laura_bomba))
+    assert_redirected_to home_ownership_path(home_ownerships(:laura_bomba))
   end
 
   test 'should delete a home ownership record' do
