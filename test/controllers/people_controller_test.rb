@@ -31,7 +31,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
         username: '@cool_kat_laurita'
       }
     }
-    assert_redirected_to person_url
+    assert_redirected_to person_path(people(:laura))
   end
 
   test 'should delete a person' do
