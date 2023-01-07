@@ -1,2 +1,2 @@
 front:
-  house_id: <%= House.find_by(name: 'La Bomba').id %>
+  house: bomba

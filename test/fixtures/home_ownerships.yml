@@ -1,3 +1,3 @@
 laura_bomba:
-  person_id: <%= Person.find_by(first_name: "Laura").id %>
-  house_id: <%= House.find_by(name: "La Bomba").id %>
+  person: laura
+  house: bomba
