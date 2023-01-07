@@ -15,15 +15,13 @@ class HomeOwnershipsControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'HomeOwnership.count' do
       post home_ownerships_url, params: {
         home_ownership: {
-          person_id: '2',
-          house_id: '1'
+          person_id: people(:laura).id,
+          house_id: houses(:bomba).id
         }
       }
     end
 
-    new_home_ownership = HomeOwnership.find_by(person_id: '2')
-
-    assert_redirected_to home_ownership_url(new_home_ownership.id)
+    assert_redirected_to home_ownership_url(HomeOwnership.last)
   end
 
   test 'should update a home ownership record' do
