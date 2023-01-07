@@ -22,9 +22,7 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    new_house = House.find_by(name: 'Deathly Hallows')
-
-    assert_redirected_to new_home_ownership_path(house_id: new_house.id)
+    assert_redirected_to new_home_ownership_path(house_id: House.last.id)
   end
 
   test 'should update a house' do
