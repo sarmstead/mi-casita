@@ -1,0 +1,7 @@
+<h1>All Windows</h1>
+<ul>
+<% @windows.sort.each do |window| %>
+  <li><%= link_to "Window ##{window.id}", window_path(window) %></li>
+<% end %>
+</ul>
+<%= link_to "Build a New Window!", new_window_path %>

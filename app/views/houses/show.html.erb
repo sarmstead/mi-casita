@@ -3,6 +3,12 @@
 <ul>
   <li>Exterior Color: <%= @house.exterior_color %></li>
   <li>Trim Color: <%= @house.trim_color %></li>
+  <li>Window IDs:</li>
+  <ul>
+    <% @house.windows.each do |window| %>
+      <li><%= link_to window.id, window_path(window) %></li>
+    <% end %>
+  </ul>
   <li>House Created On: <%= @house.created_at.to_fs(:long) %></li>
   <li>Last Updated: <%= @house.updated_at.to_fs(:long) %></li>
 </ul>

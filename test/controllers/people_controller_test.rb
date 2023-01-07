@@ -22,9 +22,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    new_person = Person.find_by(username: '@king_sahara')
-
-    assert_redirected_to person_url(new_person.id)
+    assert_redirected_to person_path(Person.last)
   end
 
   test 'should update a person' do
@@ -33,7 +31,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
         username: '@cool_kat_laurita'
       }
     }
-    assert_redirected_to person_url
+    assert_redirected_to person_path(people(:laura))
   end
 
   test 'should delete a person' do
@@ -41,6 +39,6 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       delete person_url(people(:laura))
     end
 
-    assert_redirected_to people_url
+    assert_redirected_to people_path
   end
 end
