@@ -22,7 +22,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to person_url(Person.last)
+    assert_redirected_to person_path(Person.last)
   end
 
   test 'should update a person' do
