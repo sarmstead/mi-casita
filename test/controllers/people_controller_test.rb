@@ -22,9 +22,7 @@ class PeopleControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    new_person = Person.find_by(username: '@king_sahara')
-
-    assert_redirected_to person_url(new_person.id)
+    assert_redirected_to person_url(Person.last)
   end
 
   test 'should update a person' do
