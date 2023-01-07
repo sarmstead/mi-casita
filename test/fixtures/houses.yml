@@ -1,10 +1,8 @@
 bomba: 
-  id: 1
   name: La Bomba
   exterior_color: "#ffffff"
   trim_color: "#ffffff"
 shire:
-  id: 2
   name: The Shire
   exterior_color: "#ffffff"
   trim_color: "#ffffff"
