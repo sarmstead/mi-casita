@@ -21,13 +21,13 @@ class HomeOwnershipsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to home_ownership_url(HomeOwnership.last)
+    assert_redirected_to home_ownership_path(HomeOwnership.last)
   end
 
   test 'should update a home ownership record' do
     patch home_ownership_url(home_ownerships(:laura_bomba)), params: {
       home_ownership: {
-        person_id: '1'
+        person_id: people(:randall).id
       }
     }
     assert_redirected_to home_ownership_url(home_ownerships(:laura_bomba))
