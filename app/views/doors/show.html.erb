@@ -1,0 +1,11 @@
+<h1>Door #<%= @door.id %></h1>
+<ul>
+  <li>ID: <%= @door.id %></li>
+  <li>Built on <%= @door.created_at.to_fs(:long) %></li>
+  <li>Last fixed on <%= @door.updated_at.to_fs(:long) %></li>
+</ul>
+<div>
+  <%= link_to "Fix this Door", edit_door_path(@door) %>
+  <span> | </span>
+  <%= link_to "Bust Down this Door", door_path(@door), data: { turbo_method: :delete, turbo_confirm: "You sure you want to bust down Door ##{@door.id}?! "} %>
+</div>

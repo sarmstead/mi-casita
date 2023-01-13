@@ -7,6 +7,7 @@ class House < ApplicationRecord
   has_many :home_ownerships
   has_many :people, through: :home_ownerships, dependent: :destroy
   has_many :windows, dependent: :destroy
+  has_many :doors, dependent: :destroy
 
   def valid_color_value?
     errors.add :exterior_color, 'should begin with the # symbol!' unless exterior_color.starts_with? '#'
