@@ -10,4 +10,16 @@ class DoorsControllerTest < ActionDispatch::IntegrationTest
     get door_url(doors(:front))
     assert_response :success
   end
+
+  test 'should create a new door' do
+    assert_difference 'Door.count' do
+      post doors_url, params: {
+        door: {
+          house_id: houses(:bomba).id
+        }
+      }
+    end
+
+    assert_redirected_to house_path(houses(:bomba))
+  end
 end
