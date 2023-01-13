@@ -4,3 +4,6 @@
   <li>Built on <%= @door.created_at.to_fs(:long) %></li>
   <li>Last fixed on <%= @door.updated_at.to_fs(:long) %></li>
 </ul>
+<div>
+  <%= link_to "Fix this Door", edit_door_path(@door) %>
+</div>

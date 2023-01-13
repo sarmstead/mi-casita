@@ -21,6 +21,20 @@ class DoorsController < ApplicationController
     end
   end
 
+  def edit
+    @door = Door.find(params[:id])
+  end
+
+  def update
+    @door = Door.find(params[:id])
+
+    if @door.update(door_params)
+      redirect_to @door.house
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def door_params

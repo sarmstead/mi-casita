@@ -22,4 +22,14 @@ class DoorsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to house_path(houses(:bomba))
   end
+
+  test 'should edit a door' do
+    patch door_url(doors(:front)), params: {
+      door: {
+        house_id: houses(:shire).id
+      }
+    }
+
+    assert_redirected_to house_path(houses(:shire))
+  end
 end
