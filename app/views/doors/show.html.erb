@@ -1,0 +1,6 @@
+<h1>Door #<%= @door.id %></h1>
+<ul>
+  <li>ID: <%= @door.id %></li>
+  <li>Built on <%= @door.created_at.to_fs(:long) %></li>
+  <li>Last fixed on <%= @door.updated_at.to_fs(:long) %></li>
+</ul>

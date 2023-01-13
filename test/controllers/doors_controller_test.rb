@@ -5,4 +5,9 @@ class DoorsControllerTest < ActionDispatch::IntegrationTest
     get doors_url
     assert_response :success
   end
+
+  test 'should fetch individual door' do
+    get door_url(doors(:front))
+    assert_response :success
+  end
 end

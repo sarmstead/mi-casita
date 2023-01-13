@@ -3,5 +3,6 @@
 <% @doors.each do |door| %>
   <article>
     <p>Door #<%= door.id %></p>
+    <%= link_to "Open Door", door_path(door) %>
   </article>
 <% end %>
