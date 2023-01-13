@@ -34,7 +34,9 @@ class WindowsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should delete a window' do
-    delete window_url(windows(:front))
+    assert_difference 'Window.count', -1 do
+      delete window_url(windows(:front))
+    end
 
     assert_redirected_to windows_path
   end
