@@ -39,7 +39,7 @@ class WindowsController < ApplicationController
     @window = Window.find(params[:id])
     @window.destroy
 
-    redirect_to windows_path
+    redirect_to windows_path, status: :see_other
   end
 
   private
