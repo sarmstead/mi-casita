@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :houses
   resources :home_ownerships
   resources :windows
+  resources :doors
 end
