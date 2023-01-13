@@ -35,6 +35,13 @@ class DoorsController < ApplicationController
     end
   end
 
+  def destroy
+    @door = Door.find(params[:id])
+    @door.destroy
+
+    redirect_to doors_path, status: :see_other
+  end
+
   private
 
   def door_params

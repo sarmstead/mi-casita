@@ -6,4 +6,6 @@
 </ul>
 <div>
   <%= link_to "Fix this Door", edit_door_path(@door) %>
+  <span> | </span>
+  <%= link_to "Bust Down this Door", door_path(@door), data: { turbo_method: :delete, turbo_confirm: "You sure you want to bust down Door ##{@door.id}?! "} %>
 </div>

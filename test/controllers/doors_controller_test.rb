@@ -32,4 +32,12 @@ class DoorsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to house_path(houses(:shire))
   end
+
+  test 'should delete a door' do
+    assert_difference 'Door.count', -1 do
+      delete door_url(doors(:front))
+    end
+
+    assert_redirected_to doors_path
+  end
 end
