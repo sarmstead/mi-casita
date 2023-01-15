@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :people
-  resources :houses
-  resources :home_ownerships
-  resources :windows
-  resources :doors
+  scope '/workshop' do
+    devise_for :people
+    resources :people, :houses, :home_ownerships, :windows, :doors
+  end
 end
