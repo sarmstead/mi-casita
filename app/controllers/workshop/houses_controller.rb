@@ -1,10 +1,16 @@
 class Workshop::HousesController < ApplicationController
+  before_action :authenticate_person!
+
   def index
-    @houses = House.all
+    @houses = current_person.houses
   end
 
   def show
-    @house = House.find(params[:id])
+    if persons_house?
+      @house = House.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def new
@@ -15,20 +21,25 @@ class Workshop::HousesController < ApplicationController
     @house = House.new(house_params)
 
     if @house.save
-      redirect_to new_home_ownership_path(house_id: @house.id)
+      HomeOwnership.create(house: @house, person: current_person)
+      redirect_to houses_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @house = House.find(params[:id])
+    if persons_house?
+      @house = House.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def update
     @house = House.find(params[:id])
 
-    if @house.update(house_params)
+    if persons_house && @house.update(house_params)
       redirect_to @house
     else
       render :edit, status: :unprocessable_entity
@@ -37,14 +48,20 @@ class Workshop::HousesController < ApplicationController
 
   def destroy
     @house = House.find(params[:id])
-    @house.destroy
 
-    redirect_to houses_path, status: :see_other
+    if persons_house?
+      @house.destroy
+      redirect_to houses_path, status: :see_other
+    end
   end
 
   private
 
   def house_params
     params.require(:house).permit(:name, :exterior_color, :trim_color)
+  end
+
+  def persons_house?
+    current_person.house_ids.include?(params[:id]) ? true : false
   end
 end
