@@ -1,4 +1,4 @@
-class DoorsController < ApplicationController
+class Workshop::DoorsController < ApplicationController
   def index
     @doors = Door.all
   end

@@ -1,4 +1,4 @@
-class HomeOwnershipsController < ApplicationController
+class Workshop::HomeOwnershipsController < ApplicationController
   def index
     @home_ownerships = HomeOwnership.all
   end
