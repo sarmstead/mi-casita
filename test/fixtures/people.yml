@@ -2,8 +2,12 @@ laura:
   first_name: Laura
   last_name: Frost
   username: "@lfrosty"
+  email: "frostybites@email.com"
+  encrypted_password: "password"
 
 randall:
   first_name: Randall
   last_name: Alemont
   username: "@ralemont"
+  email: "alemontes@email.com"
+  encrypted_password: "password"
