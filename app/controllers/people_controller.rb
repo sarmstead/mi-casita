@@ -15,6 +15,8 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
     @person.username = "@#{@person.username}" unless @person.username.starts_with? '@'
 
+    new_person_registration(@person)
+
     if @person.save
       redirect_to @person
     else
@@ -46,6 +48,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :username)
+    params.require(:person).permit(:first_name, :last_name, :username, :email, :password, :password, :password_confirmation)
   end
 end
