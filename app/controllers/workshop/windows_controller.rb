@@ -1,4 +1,4 @@
-class WindowsController < ApplicationController
+class Workshop::WindowsController < ApplicationController
   def index
     @windows = Window.all
   end
