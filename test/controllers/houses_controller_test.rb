@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class HousesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
+  setup do
+    sign_in(people(:laura))
+  end
+
   test 'should get index' do
     get houses_url
     assert_response :success
@@ -22,7 +28,7 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to new_home_ownership_path(house_id: House.last.id)
+    assert_redirected_to houses_path
   end
 
   test 'should update a house' do

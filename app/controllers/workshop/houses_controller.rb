@@ -39,7 +39,7 @@ class Workshop::HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
 
-    if persons_house && @house.update(house_params)
+    if persons_house? && @house.update(house_params)
       redirect_to @house
     else
       render :edit, status: :unprocessable_entity
