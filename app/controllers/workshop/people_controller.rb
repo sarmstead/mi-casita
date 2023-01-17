@@ -45,6 +45,14 @@ class Workshop::PeopleController < ApplicationController
     redirect_to people_path, status: :see_other
   end
 
+  def dashboard
+    if person_signed_in?
+      true
+    else
+      redirect_to new_person_session_path
+    end
+  end
+
   private
 
   def person_params
